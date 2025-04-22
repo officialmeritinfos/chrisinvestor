@@ -229,6 +229,9 @@
                             <li>
                                 <a href="{{url('terms')}}">Terms & Conditions</a>
                             </li>
+                            <li>
+                                <a href="{{ route('home.legal') }}">Legal Information</a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -328,6 +331,10 @@
                         <li><a href="{{url('about')}}">About</a></li>
                         <li><a href="{{url('faq')}}">FAQs</a></li>
                         <li><a href="{{url('contact')}}">Contact</a></li>
+
+                        <li>
+                            <a href="{{ route('home.legal') }}">Legal Information</a>
+                        </li>
                     </ul>
                 </div>
             </div> <!-- /.col-lg-2 - single-footer-wid -->

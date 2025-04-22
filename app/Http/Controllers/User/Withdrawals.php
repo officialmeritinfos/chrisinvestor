@@ -26,9 +26,10 @@ class Withdrawals extends Controller
         $dataView = [
             'web'=>$web,
             'user'=>$user,
-            'withdrawals'=>Withdrawal::where('user',$user->id)->paginate(15),
+            'withdrawals'=>Withdrawal::where('user',$user->id)->where('status',1)->paginate(15),
             'pageName'=>'Withdrawal Lists',
-            'siteName'=>$web->name
+            'siteName'=>$web->name,
+            'pendings'=>Withdrawal::where('user',$user->id)->where('status',2)->paginate(10,'*','pending')
         ];
 
         return view('user.withdrawals',$dataView);

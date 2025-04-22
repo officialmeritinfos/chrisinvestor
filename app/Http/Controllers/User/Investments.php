@@ -29,8 +29,10 @@ class Investments extends Controller
             'web'=>$web,
             'user'=>$user,
             'investments'=>Investment::where('user',$user->id)->paginate(15),
-            'pageName'=>'Deposit Lists',
-            'siteName'=>$web->name
+            'pageName'=>'Deposit History',
+            'siteName'=>$web->name,
+            'confirms' => Investment::where('user',$user->id)->where('status','!=',2)->where('status','!=',3)->paginate(),
+            'pendings' => Investment::where('user',$user->id)->where('status','!=',1)->where('status','!=',4)->paginate(10,'*','pending'),
         ];
 
         return view('user.investments',$dataView);

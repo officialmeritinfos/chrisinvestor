@@ -38,7 +38,8 @@ class Dashboard extends Controller
                 'user'=>$user->id,'status'=>4
             ])->limit(5)->get(),
             'promos'=>Promo::where('status',1)->get(),
-            'notifications'=>Notification::where('status',1)->where('user',$user->id)->get()
+            'notifications'=>Notification::where('status',1)->where('user',$user->id)->get(),
+            'referrals'=>User::where('referral', $user->id)->get()->count(),
         ];
 
         return view('user.dashboard',$dataView);

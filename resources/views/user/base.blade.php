@@ -94,54 +94,48 @@
 {{--                    </li>--}}
 {{--                </ul>--}}
 {{--            </li>--}}
+
+            <li>
+                <a href="{{url('account/new_investment')}}" class="box-style">
+                    <i class="bx bx-upload"></i>
+                    <span class="menu-title">Deposit</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{url('account/new_withdrawals')}}" class="box-style">
+                    <i class="bx bx-download"></i>
+                    <span class="menu-title">Withdraw </span>
+                </a>
+            </li>
+            <li>
+                <a href="{{route('transfer.index')}}" class="box-style">
+                    <i class="bx bx-refresh"></i>
+                    <span class="menu-title">Transfer  </span>
+                </a>
+            </li>
+
             <li>
                 <a href="#" class="has-arrow box-style">
-                    <i class="ri-building-line"></i>
-                    <span class="menu-title">Investment</span>
+                    <i class="ri-book-2-line"></i>
+                    <span class="menu-title">Transactions</span>
                 </a>
 
                 <ul class="sidemenu-nav-second-level">
-                    <li>
-                        <a href="{{url('account/new_investment')}}">
-                            <span class="menu-title">Deposit</span>
-                        </a>
-                    </li>
 
                     <li>
                         <a href="{{url('account/investments')}}">
                             <span class="menu-title">Deposit History</span>
                         </a>
                     </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#" class="has-arrow box-style">
-                    <i class="ri-send-plane-fill"></i>
-                    <span class="menu-title">Withdrawal</span>
-                </a>
-
-                <ul class="sidemenu-nav-second-level">
 
                     <li>
                         <a href="{{url('account/withdrawals')}}">
-                            <span class="menu-title">Withdrawals</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{{url('account/new_withdrawals')}}">
-                            <span class="menu-title">New Withdrawal</span>
+                            <span class="menu-title">Withdrawal History</span>
                         </a>
                     </li>
                 </ul>
             </li>
 
-            <li>
-                <a href="{{route('transfer.index')}}" class="box-style">
-                    <i class="bx bx-send"></i>
-                    <span class="menu-title">Transfer Funds </span>
-                </a>
-            </li>
 
             <li>
                 <a href="{{route('subtrade.index')}}" class="box-style">
