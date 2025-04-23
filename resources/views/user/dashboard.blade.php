@@ -2,6 +2,21 @@
 @section('content')
 @inject('injected','App\Defaults\Custom')
 
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-12">
+            <div class="bg-white border rounded-4 shadow-sm p-5 text-center">
+                <h1 class="fw-semibold mb-3" style="font-size: 1rem;">
+                    Welcome, {{ Auth::user()->name ?? 'Guest' }} 👋
+                </h1>
+                <p class="text-muted mb-4 fs-5">
+                    It’s great to see you again. Your dashboard is all set — let's make today productive and impactful.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
 
     @foreach($promos as $promo)
         <div class="ui-kit-card mb-24">
