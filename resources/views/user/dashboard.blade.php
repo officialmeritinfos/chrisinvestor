@@ -7,11 +7,8 @@
         <div class="col-lg-12">
             <div class="bg-white border rounded-4 shadow-sm p-5 text-center">
                 <h1 class="fw-semibold mb-3" style="font-size: 1rem;">
-                    Welcome, {{ Auth::user()->name ?? 'Guest' }} 👋
+                    Welcome, {{ Auth::user()->name ?? 'Guest' }}
                 </h1>
-                <p class="text-muted mb-4 fs-5">
-                    It’s great to see you again. Your dashboard is all set — let's make today productive and impactful.
-                </p>
             </div>
         </div>
     </div>
