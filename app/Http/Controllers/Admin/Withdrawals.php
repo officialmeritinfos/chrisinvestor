@@ -22,8 +22,23 @@ class Withdrawals extends Controller
         $dataView = [
             'web'=>$web,
             'user'=>$user,
-            'withdrawals'=>Withdrawal::get(),
-            'pageName'=>'Withdrawal Lists',
+            'withdrawals'=>Withdrawal::where('status',1)->get(),
+            'pageName'=>'Confirmed Withdrawal Lists',
+            'siteName'=>$web->name
+        ];
+
+        return view('admin.withdrawals',$dataView);
+    }
+    public function pending()
+    {
+        $web = GeneralSetting::find(1);
+        $user = Auth::user();
+
+        $dataView = [
+            'web'=>$web,
+            'user'=>$user,
+            'withdrawals'=>Withdrawal::where('status',2)->orWhere('status',3)->get(),
+            'pageName'=>'Pending Withdrawal Lists',
             'siteName'=>$web->name
         ];
 

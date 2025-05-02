@@ -52,6 +52,7 @@ Route::get('deposits/{id}/cancel',[Deposits::class,'cancel'])->name('deposit.can
 Route::get('deposits/{id}/approve',[Deposits::class,'approve'])->name('deposit.approve');
 /*================ INVESTMENT ROUTE ====================*/
 Route::get('investments',[Investments::class,'landingPage'])->name('investment.index');
+Route::get('investments/pending',[Investments::class,'pending'])->name('investment.pending');
 Route::get('investments/{id}/details',[Investments::class,'investmentDetails'])->name('invest_detail');
 Route::get('investments/{id}/cancel',[Investments::class,'cancel'])->name('invest.cancel');
 Route::get('investments/{id}/start',[Investments::class,'startInvestment'])->name('invest.start');
@@ -59,6 +60,7 @@ Route::get('investments/{id}/complete',[Investments::class,'completeInvestment']
 Route::get('investments/{id}/delete',[Investments::class,'delete'])->name('invest.delete');
 /*================ WITHDRAWAL ROUTE ====================*/
 Route::get('withdrawals',[Withdrawals::class,'landingPage'])->name('withdrawal.index');
+Route::get('withdrawals/pending',[Withdrawals::class,'pending'])->name('withdrawal.pending');
 Route::get('withdrawals/{id}/cancel',[Withdrawals::class,'cancel'])->name('withdraw.cancel');
 Route::get('withdrawals/{id}/approve',[Withdrawals::class,'approve'])->name('withdraw.approve');
 Route::get('withdrawals/{id}/delete',[Withdrawals::class,'delete'])->name('withdraw.delete');

@@ -23,8 +23,23 @@ class Investments extends Controller
         $dataView = [
             'web'=>$web,
             'user'=>$user,
-            'investments'=>Investment::get(),
-            'pageName'=>'Investment Lists',
+            'investments'=>Investment::where('status','!=',2)->where('status','!=',3)->get(),
+            'pageName'=>'Confirmed Deposits',
+            'siteName'=>$web->name
+        ];
+
+        return view('admin.investments',$dataView);
+    }
+    public function pending()
+    {
+        $web = GeneralSetting::find(1);
+        $user = Auth::user();
+
+        $dataView = [
+            'web'=>$web,
+            'user'=>$user,
+            'investments'=>Investment::where('status',2)->get(),
+            'pageName'=>'Pending Deposits',
             'siteName'=>$web->name
         ];
 

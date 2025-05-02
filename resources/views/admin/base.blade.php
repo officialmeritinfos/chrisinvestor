@@ -62,7 +62,7 @@
         </div>
 
         <!-- Nav Item - Utilities Collapse Menu -->
-        <li class="nav-item">
+        {{--<li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-wrench"></i>
@@ -72,19 +72,55 @@
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Utilities</h6>
-                    <a class="collapse-item" href="{{url('admin/investments')}}">Investments</a>
-{{--                    <a class="collapse-item" href="{{url('admin/deposits')}}">Deposits</a>--}}
-                    <a class="collapse-item" href="{{url('admin/packages')}}">Investment Package</a>
-                    <a class="collapse-item" href="{{url('admin/investors')}}">Investors</a>
-                    <a class="collapse-item" href="{{url('admin/withdrawals')}}">Withdrawals</a>
-                    <a class="collapse-item" href="{{url('admin/transfers')}}">Transfers</a>
-                    <a class="collapse-item" href="{{url('admin/accounts')}}">Managed Accounts</a>
+                    <a class="collapse-item" href="{{url('admin/deposits')}}">Deposits</a>
                 </div>
             </div>
+        </li>--}}
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('admin/investors')}}">
+                <i class="fas fa-fw fa-user"></i>
+                <span>Registered Investors</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('admin/investments/pending')}}">
+                <i class="fas fa-fw fa-retweet"></i>
+                <span>Pending Deposits</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('admin/investments')}}">
+                <i class="fas fa-fw fa-retweet"></i>
+                <span>Confirmed Deposits</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('admin/withdrawals/pending')}}">
+                <i class="fas fa-fw fa-money-bill-alt"></i>
+                <span>Pending Withdrawals</span></a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('admin/withdrawals')}}">
+                <i class="fas fa-fw fa-money-bill-alt"></i>
+                <span>Confirmed Withdrawals</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('admin/packages')}}">
+                <i class="fas fa-fw fa-gifts"></i>
+                <span>Investment Packages</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('admin/transfers')}}">
+                <i class="fas fa-fw fa-arrow-right"></i>
+                <span>Transfers</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('admin/accounts')}}">
+                <i class="fas fa-fw fa-users"></i>
+                <span>Managed Accounts</span></a>
         </li>
 
         <!-- Nav Item - Utilities Collapse Menu -->
-        <li class="nav-item">
+        {{--<li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOperations"
                aria-expanded="true" aria-controls="collapseOperations">
                 <i class="fas fa-fw fa-wrench"></i>
@@ -94,13 +130,34 @@
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Operations</h6>
-                    <a class="collapse-item" href="{{url('admin/coins')}}">Wallet</a>
-                    <a class="collapse-item" href="{{url('admin/settings')}}">Settings</a>
-                    <a class="collapse-item" href="{{route('admin.promo.index')}}">Promos</a>
-                    <a class="collapse-item" href="{{route('admin.notification.index')}}">Notifications</a>
-                    <a class="collapse-item" href="{{route('admin.accounts.duration.index')}}">Managed Account Duration</a>
                 </div>
             </div>
+        </li>--}}
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('admin/coins')}}">
+                <i class="fas fa-fw fa-wallet"></i>
+                <span>Wallet</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('admin/settings')}}">
+                <i class="fas fa-fw fa-cogs"></i>
+                <span>Settings</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('admin.notification.index')}}">
+                <i class="fas fa-fw fa-bell"></i>
+                <span>Notifications</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('admin.accounts.duration.index')}}">
+                <i class="fas fa-fw fa-calendar"></i>
+                <span>Managed Account Duration</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('admin.promo.index')}}">
+                <i class="fas fa-fw fa-gift"></i>
+                <span>Promos</span></a>
         </li>
 
 

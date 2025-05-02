@@ -42,7 +42,7 @@
                             <select type="number" class="form-control" id="inputAddress2"
                                     name="account">
                                 <option value="">Select a Account</option>
-                                <option value="1"> Profit Balance</option>
+                                <option value="1"> Account Balance</option>
                                 <option value="2"> Referral Balance</option>
                             </select>
                         </div>
