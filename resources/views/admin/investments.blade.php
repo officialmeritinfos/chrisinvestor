@@ -10,7 +10,7 @@
         <div class="card-body">
             @include('templates.notification')
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="dataTabless" width="100%" cellspacing="0">
                     <thead>
                     <tr>
                         <th>Investor</th>
@@ -88,6 +88,9 @@
                     </tr>
                     </tfoot>
                 </table>
+            </div>
+            <div class="mt-3">
+                {{ $investments->links() }}
             </div>
         </div>
     </div>

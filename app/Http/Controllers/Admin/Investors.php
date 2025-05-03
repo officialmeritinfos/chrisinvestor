@@ -26,7 +26,7 @@ class Investors extends Controller
             'pageName' => 'Investors',
             'user'     =>  $user,
             'web'=>$web,
-            'investors'=>User::where('status',1)->get()
+            'investors'=>User::where('status',1)->orderBy('id','desc')->paginate(15)
         ];
 
         return view('admin.investors',$dataView);
@@ -42,7 +42,7 @@ class Investors extends Controller
             'pageName' => 'Investors',
             'user'     =>  $user,
             'web'=>$web,
-            'investors'=>User::where('status','!=',1)->get()
+            'investors'=>User::where('status','!=',1)->orderBy('id','desc')->paginate(15)
         ];
 
         return view('admin.investors',$dataView);

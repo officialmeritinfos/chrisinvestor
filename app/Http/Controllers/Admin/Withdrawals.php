@@ -22,7 +22,7 @@ class Withdrawals extends Controller
         $dataView = [
             'web'=>$web,
             'user'=>$user,
-            'withdrawals'=>Withdrawal::where('status',1)->get(),
+            'withdrawals'=>Withdrawal::where('status',1)->orderBy('id','desc')->paginate(),
             'pageName'=>'Confirmed Withdrawal Lists',
             'siteName'=>$web->name
         ];
@@ -37,7 +37,7 @@ class Withdrawals extends Controller
         $dataView = [
             'web'=>$web,
             'user'=>$user,
-            'withdrawals'=>Withdrawal::where('status',2)->orWhere('status',3)->get(),
+            'withdrawals'=>Withdrawal::where('status',2)->orWhere('status',3)->orderBy('id','desc')->paginate(),
             'pageName'=>'Pending Withdrawal Lists',
             'siteName'=>$web->name
         ];

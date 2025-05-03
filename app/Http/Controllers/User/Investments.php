@@ -151,22 +151,31 @@ class Investments extends Controller
             //send notification
             //check if admin exists
             $admin = User::where('is_admin',1)->first();
-            $userMessage = "
+            if ($source !='profit'){
+                $userMessage = "
+                    Your new deposit request of $<b>".$input['amount']." </b>  has been received. Your Investment reference Id is <b>".$ref."</b><br/>
+                    Kindly proceed to make your payment, and your investment will automatically be initiated upon deposit confirmation.
+                ";
+                $title = "Deposit Request Received";
+            }else{
+                $userMessage = "
                     Your new investment package purchase of $<b>".$input['amount']." </b>
                     has been received. Your Investment reference Id is <b>".$ref."</b>
                 ";
+                $title = "Investment Initiated";
+            }
 
             //send mail to user
             //SendInvestmentNotification::dispatch($user,$userMessage,'Investment Initiation');
-            $user->notify(new InvestmentMail($user,$userMessage,'Investment Initiation'));
+            $user->notify(new InvestmentMail($user,$userMessage,$title));
             //send mail to Admin
             if (!empty($admin)){
                 $adminMessage = "
-                    A new investment of $<b>".$input['amount']."</b>
-                    has been started by the investor <b>".$user->name."</b> with reference <b>".$ref."</b>
+                    A new deposit of $<b>".$input['amount']."</b>
+                    has been received from the investor <b>".$user->name."</b> with reference <b>".$ref."</b>
                 ";
                 //SendInvestmentNotification::dispatch($admin,$adminMessage,'New Investment Initiation');
-                $admin->notify(new InvestmentMail($admin,$adminMessage,'New Investment Initiation'));
+                $admin->notify(new InvestmentMail($admin,$adminMessage,'New Deposit Initiation'));
             }
             return redirect()->route('invest_detail',['id'=>$investment->id])
                 ->with('success','Investment initiated successfully.');

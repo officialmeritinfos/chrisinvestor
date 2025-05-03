@@ -23,7 +23,7 @@ class Investments extends Controller
         $dataView = [
             'web'=>$web,
             'user'=>$user,
-            'investments'=>Investment::where('status','!=',2)->where('status','!=',3)->get(),
+            'investments'=>Investment::where('status','!=',2)->where('status','!=',3)->orderBy('id','desc')->paginate(15),
             'pageName'=>'Confirmed Deposits',
             'siteName'=>$web->name
         ];
@@ -38,7 +38,7 @@ class Investments extends Controller
         $dataView = [
             'web'=>$web,
             'user'=>$user,
-            'investments'=>Investment::where('status',2)->get(),
+            'investments'=>Investment::where('status',2)->orderBy('id','desc')->paginate(15),
             'pageName'=>'Pending Deposits',
             'siteName'=>$web->name
         ];
@@ -66,9 +66,11 @@ class Investments extends Controller
         $user = Auth::user();
         $web = GeneralSetting::find(1);
 
-        $investment = Investment::where('id',$id)->first();
+        $investment = Investment::where('id',$id)->firstOrFail();
 
         $type = ReturnType::where('id',$investment->returnType)->first();
+
+        $investor = User::where('id',$investment->user)->first();
 
         $timeReturn = strtotime($type->duration,time());
 
@@ -77,6 +79,14 @@ class Investments extends Controller
         $investment->nextReturn = $timeReturn;
 
         $investment->save();
+
+        $userMessage = "
+                Your Deposit with reference Id <b>" . $investment->reference . "</b> has been confirmed and your investment
+                automatically started. Your earnings will reflect according to the plan.
+            ";
+        //send mail to user
+
+        $investor->notify(new InvestmentMail($investor, $userMessage, 'Deposit Confirmation & Investment Started'));
 
         return back()->with('success','Investment Started');
     }

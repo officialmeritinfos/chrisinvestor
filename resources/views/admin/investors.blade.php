@@ -14,7 +14,7 @@
                     <a href="{{route('admin.investor.inactive')}}" class="btn btn-outline-warning">View Deactivated Users</a>
                     <a href="{{route('admin.investor.index')}}" class="btn btn-success">View Active Users</a>
                 </div>
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="dataTabless" width="100%" cellspacing="0">
                     <thead>
                     <tr>
                         <th>Name</th>
@@ -51,7 +51,7 @@
                                 <a href="{{route('admin.investor.detail',['id'=>$investor->id])}}" class="btn btn-primary mt-4">
                                     <i class="fa fa-eye"></i> View
                                 </a>
-                                
+
                                 <a href="{{route('admin.investor.login',['id'=>$investor->id])}}" class="btn btn-info mt-4">
                                     <i class="fa fa-eye"></i> Access User
                                 </a>
@@ -72,6 +72,9 @@
                     </tr>
                     </tfoot>
                 </table>
+            </div>
+            <div class="mt-3">
+                {{ $investors->links() }}
             </div>
         </div>
     </div>
