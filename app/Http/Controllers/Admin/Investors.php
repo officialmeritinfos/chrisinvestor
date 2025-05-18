@@ -53,13 +53,16 @@ class Investors extends Controller
         $web = GeneralSetting::find(1);
         $user = Auth::user();
 
+        $investor = User::where('id',$id)->first();
+
         $dataView =[
             'siteName' => $web->name,
             'pageName' => 'Investor Details',
             'user'     =>  $user,
             'web'=>$web,
-            'investor'=>User::where('id',$id)->first(),
-            'promos'=>Notification::where('user',$id)->get()
+            'investor'=>$investor,
+            'promos'=>Notification::where('user',$id)->get(),
+            'referrals'=>User::where('referral',$investor->id)->get()
         ];
 
         return view('admin.investor_detail',$dataView);

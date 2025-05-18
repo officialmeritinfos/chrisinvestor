@@ -284,13 +284,54 @@
                             </div>
                         </div>
                     </div>
-                    
-                    
+
+
                 </div>
             </div>
         </div>
     </div>
-    
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">{{$pageName}}</h6>
+        </div>
+        <div class="card-body">
+            @include('templates.notification')
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>Reference</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($referrals as $referral)
+                        <tr>
+                            <td>{{$referral->userRef}}</td>
+                            <td>{{$referral->name}}</td>
+                            <td>{{$referral->email}}</td>
+                            <td>
+                                @switch($referral->status)
+                                    @case(1)
+                                        <span class="badge badge-success">Active</span>
+                                        @break
+                                    @default
+                                        <span class="badge badge-primary">Inactive</span>
+                                        @break
+                                @endswitch
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
     <!-- DataTales Example -->
     <div class="card shadow mb-4 mt-4">
         <div class="card-header py-3">
@@ -344,7 +385,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Modal -->
     <div class="modal fade" id="notify">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -756,4 +797,8 @@
                 </div>
             </div>
         </div>
-    </div>@endsection
+    </div>
+
+
+
+@endsection
